@@ -19,6 +19,6 @@ app.get("/client", (req, res) => {
 })
 
 app.listen(PORT, () => {
-
+  mongooseConn
   console.log(`Listening on port ${ PORT }`);
 });
