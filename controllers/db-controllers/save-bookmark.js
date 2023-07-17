@@ -4,7 +4,7 @@ const saveBookmark = async (req, res) => {
   try {
     const newObj = {
       userId: req.user.uid,
-      pathName: req.body.pathname,
+      pathName: req.body.pathName,
       title: req.body.title,
       body: req.body.body,
       link_title: req.body.link_title,

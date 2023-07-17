@@ -9,6 +9,7 @@ const deleteCategory = require("../controllers/db-controllers/delete-category.js
 const getCategoryBookmarks = require("../controllers/db-controllers/get-category-bookmarks.js");
 const saveBookmark = require("../controllers/db-controllers/save-bookmark.js");
 const queryBookmarks = require("../controllers/db-controllers/query-bookmarks.js");
+const deleteBookmark = require("../controllers/db-controllers/delete-bookmark.js");
 
 bookmarkRouter.route('/')
   .get((req, res) => {
@@ -31,8 +32,8 @@ bookmarkRouter.route("/bookmarks/:searchItem") // Query bookmark collection for 
 bookmarkRouter.route("/bookmarks")
   .post(saveBookmark) // POST bookmark to a category
 
-
-bookmarkRouter
+bookmarkRouter.route("/remove-bookmark/:bookmarkId")
+  .delete(deleteBookmark) // DELETE bookmark from bookmark collection
 
 
 module.exports = bookmarkRouter;
