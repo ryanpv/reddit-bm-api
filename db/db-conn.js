@@ -40,7 +40,7 @@ const bookmarkSchema = new mongoose.Schema({
 });
 
 const categorySchema = new mongoose.Schema({
-  owner: {
+  userId: {
     type: String,
     required: true
   },
