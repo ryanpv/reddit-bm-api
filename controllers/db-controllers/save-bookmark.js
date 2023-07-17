@@ -3,24 +3,23 @@ const { Bookmark } = require("../../db/db-conn.js");
 const saveBookmark = async (req, res) => {
   try {
     const newObj = {
-      userId: "bookmarkUser",
-      pathName: "www.bookark.com",
-      title: "randome title",
-      body: "some body content",
-      link_title: "link title",
-      author: "redditauthor",
-      subreddit: "randomsub",
-      categoryName: "testCategory",
-      categoryId: "categoryId",
-      over_18: "false"
-    }
+      userId: req.user.uid,
+      pathName: req.body.pathname,
+      title: req.body.title,
+      body: req.body.body,
+      link_title: req.body.link_title,
+      author: req.body.author,
+      subreddit: req.body.subreddit,
+      categoryName: req.body.categoryName,
+      categoryId: req.body.categoryId,
+      over_18: req.body.over_18
+    };
     const newBookmark = new Bookmark(newObj);
-    const saveBookmark = await newBookmark.save();
+    await newBookmark.save();
   
-    console.log('saving: ', saveBookmark)
-    res.send("Bookmark saved")
+    res.send("Bookmark saved");
   } catch (err) {
-    res.send(err)
+    res.send(err);
   }
 }
 
