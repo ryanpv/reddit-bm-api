@@ -5,6 +5,7 @@ const { Category } = require("../db/db-conn.js");
 // DB CONTROLLERS
 const getAllCategories = require("../controllers/db-controllers/get-categories.js");
 const postNewCategory = require("../controllers/db-controllers/post-category.js");
+const deleteCategory = require("../controllers/db-controllers/delete-category.js");
 
 bookmarkRouter.route('/')
   .get((req, res) => {
@@ -14,7 +15,8 @@ bookmarkRouter.route('/')
 
 bookmarkRouter.route("/category-list")
   .get(getAllCategories) // GET LIST OF ALL CATEGORIES
-  .post(postNewCategory); // POST NEW CATEGORY
+  .post(postNewCategory) // POST NEW CATEGORY
+  .delete(deleteCategory)
 
 
 
