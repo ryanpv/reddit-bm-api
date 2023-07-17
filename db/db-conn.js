@@ -25,6 +25,14 @@ const bookmarkSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  link_title: {
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
   author: {
     type: String,
     required: true
@@ -34,6 +42,14 @@ const bookmarkSchema = new mongoose.Schema({
     required: true
   },
   categoryName: {
+    type: String,
+    required: true
+  },
+  categoryId: {
+    type: String,
+    required: true
+  },
+  over_18: {
     type: String,
     required: true
   },
