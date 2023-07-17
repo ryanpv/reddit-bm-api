@@ -7,6 +7,7 @@ const getAllCategories = require("../controllers/db-controllers/get-categories.j
 const postNewCategory = require("../controllers/db-controllers/post-category.js");
 const deleteCategory = require("../controllers/db-controllers/delete-category.js");
 const getCategoryBookmarks = require("../controllers/db-controllers/get-category-bookmarks.js");
+const saveBookmark = require("../controllers/db-controllers/save-bookmark.js");
 
 bookmarkRouter.route('/')
   .get((req, res) => {
@@ -23,7 +24,11 @@ bookmarkRouter.route("/category-list")
 bookmarkRouter.route("/category-list/:categoryId/:pageNum")
   .get(getCategoryBookmarks) // GET all bookmarks stored in category
 
+bookmarkRouter.route("/bookmarks/:searchItem")
+  .get()
 
+bookmarkRouter.route("/bookmarks")
+  .post(saveBookmark) // POST bookmark to a category
 
 
 bookmarkRouter

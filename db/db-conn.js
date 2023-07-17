@@ -23,15 +23,15 @@ const bookmarkSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    required: true
+    required: false
   },
   link_title: {
     type: String,
-    required: true
+    required: false
   },
   body: {
     type: String,
-    required: true
+    required: false
   },
   author: {
     type: String,
