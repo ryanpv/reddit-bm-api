@@ -1,10 +1,12 @@
-const { Category } = require("../../db/db-conn.js");
+const { Category, Bookmark } = require("../../db/db-conn.js");
 
 const deleteCategory = async (req, res) => {
   try {
-    const deleteFunc = await Category.findOneAndDelete({ userId: "testerdeletes", categoryName: "deletes" });
+    const query = { userId: req.user.uid, categoryName: req.body.categoryName };
+    const delFromCategory = await Category.findOneAndDelete(query);
+    const delFromBookmark = await Bookmark.deleteMany(query);
   
-    if(deleteFunc === null) {
+    if(delFromCategory === null || delFromBookmark === null) {
       console.log("Cannot find category")
       res.send("Cannot find category")
     } else {

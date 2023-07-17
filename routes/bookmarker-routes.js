@@ -14,9 +14,9 @@ bookmarkRouter.route('/')
 
 
 bookmarkRouter.route("/category-list")
-  .get(getAllCategories) // GET LIST OF ALL CATEGORIES
-  .post(postNewCategory) // POST NEW CATEGORY
-  .delete(deleteCategory)
+  .get(getAllCategories) // GET list of all categories
+  .post(postNewCategory) // POST new category
+  .delete(deleteCategory) // DELETE all docs that include the category name from all collections
 
 
 
