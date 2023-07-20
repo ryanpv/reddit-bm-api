@@ -1,6 +1,5 @@
 const express = require("express");
 const bookmarkRouter = express.Router();
-const { Category } = require("../db/db-conn.js");
 
 // DB CONTROLLERS
 const getAllCategories = require("../controllers/db-controllers/get-categories.js");
@@ -26,8 +25,8 @@ bookmarkRouter.route("/category-list")
 bookmarkRouter.route("/category-list/:categoryId/:pageNum")
   .get(getCategoryBookmarks) // GET all bookmarks stored in category
 
-bookmarkRouter.route("/bookmarks/:searchItem") // Query bookmark collection for specific :searchItem
-  .get(queryBookmarks)
+bookmarkRouter.route("/bookmarks/:searchItem") 
+  .get(queryBookmarks) // Query bookmark collection for specific :searchItem
 
 bookmarkRouter.route("/bookmarks")
   .post(saveBookmark) // POST bookmark to a category

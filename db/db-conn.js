@@ -73,6 +73,7 @@ const Category = mongoose.model("categories", categorySchema)
 
 module.exports = {
   mongooseConn,
+  db,
   Bookmark,
   Category
 }

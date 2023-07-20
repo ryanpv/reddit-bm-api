@@ -2,7 +2,7 @@ const { Category, Bookmark } = require("../../db/db-conn.js");
 
 const deleteCategory = async (req, res) => {
   try {
-    const query = { userId: req.user.uid, categoryName: req.body.categoryName };
+    const query = { userId: req.session.uid, categoryName: req.body.categoryName };
     const delFromCategory = await Category.findOneAndDelete(query);
     const delFromBookmark = await Bookmark.deleteMany(query);
   

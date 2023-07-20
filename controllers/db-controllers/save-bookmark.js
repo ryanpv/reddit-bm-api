@@ -3,7 +3,7 @@ const { Bookmark } = require("../../db/db-conn.js");
 const saveBookmark = async (req, res) => {
   try {
     const newObj = {
-      userId: req.user.uid,
+      userId: req.session.uid,
       pathName: req.body.pathName,
       title: req.body.title,
       body: req.body.body,
