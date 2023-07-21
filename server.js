@@ -4,10 +4,11 @@ const app = express();
 require("dotenv").config({ path: "./config.env" });
 const cookieParser = require("cookie-parser");
 const bookmarkRouter = require("./routes/bookmarker-routes.js");
-const { mongooseConn, db } = require("./db/db-conn.js");
+const { mongooseConn } = require("./db/db-conn.js");
 const firebaseRouter = require("./routes/firebase-routes.js");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+require("./firebase-config.js")
 
 const PORT = 7979
 

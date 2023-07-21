@@ -6,7 +6,6 @@ const postNewCategory = async (req, res) => {
       userId: req.session.uid,
       categoryName: req.body.categoryName
     };
-
     const newCategory = new Category(newObj);
     const checkDuplicates = await Category.exists({ userId: req.session.uid, categoryName: req.body.categoryName });
 
