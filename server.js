@@ -7,6 +7,7 @@ const bookmarkRouter = require("./routes/bookmarker-routes.js");
 const { mongooseConn } = require("./db/db-conn.js");
 const firebaseRouter = require("./routes/firebase-routes.js");
 const session = require("express-session");
+const redditRouter = require("./routes/reddit-api-routes.js");
 const MongoDBStore = require("connect-mongodb-session")(session);
 require("./firebase-config.js")
 
@@ -33,6 +34,7 @@ app.use(session({
 
 app.use("/bookmarker", bookmarkRouter)
 app.use("/users", firebaseRouter)
+app.use("/user-reddit", redditRouter)
 
 app.get("/client", (req, res) => {
   res.send("Hello World, welcome to home page")
