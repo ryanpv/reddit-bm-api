@@ -25,10 +25,10 @@ bookmarkRouter.route("/category-list")
 bookmarkRouter.route("/category-list/:categoryId/:pageNum")
   .get(getCategoryBookmarks) // GET all bookmarks stored in category
 
-bookmarkRouter.route("/bookmarks/:searchItem") 
+bookmarkRouter.route("/saved-bookmarks/:searchItem") 
   .get(queryBookmarks) // Query bookmark collection for specific :searchItem
 
-bookmarkRouter.route("/bookmarks")
+bookmarkRouter.route("/saved-bookmarks")
   .post(saveBookmark) // POST bookmark to a category
 
 bookmarkRouter.route("/remove-bookmark/:bookmarkId")

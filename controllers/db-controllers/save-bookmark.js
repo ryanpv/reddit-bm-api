@@ -16,7 +16,7 @@ const saveBookmark = async (req, res) => {
     };
     const newBookmark = new Bookmark(newObj);
     await newBookmark.save();
-  
+
     res.send("Bookmark saved");
   } catch (err) {
     res.send(err);
