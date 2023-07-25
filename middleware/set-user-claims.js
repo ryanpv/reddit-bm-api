@@ -9,13 +9,13 @@ const setUserClaims = async (req, res, next) => {
       const userAccessToken = req.body.accessToken;
       const verifiedToken = await getAuth().verifyIdToken(userAccessToken);
       const user = verifiedToken
-    
-      if (!verifiedToken.isRegUser || !verifiedToken.isAdmin) {
-        await getAuth()
-          .setCustomUserClaims(user.uid, { isRegUser: true });
-console.log("setting user claims as regUser");
+
+      if (verifiedToken.isRegUser || verifiedToken.isAdmin) {
         next();
       } else {
+        await getAuth()
+          .setCustomUserClaims(user.uid, { isRegUser: true });
+
         next();
       }
     } else {
