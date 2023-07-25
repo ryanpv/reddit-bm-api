@@ -22,7 +22,7 @@ bookmarkRouter.route("/category-list")
   .delete(deleteCategory) // DELETE all docs that include the category name from all collections
 
 // BOOKMARKS ROUTES
-bookmarkRouter.route("/category-list/:categoryId/:pageNum")
+bookmarkRouter.route("/category-list/:categoryId/:bookmarksIndex")
   .get(getCategoryBookmarks) // GET all bookmarks stored in category
 
 bookmarkRouter.route("/saved-bookmarks/:searchItem") 

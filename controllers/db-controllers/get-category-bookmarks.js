@@ -6,7 +6,7 @@ const getCategoryBookmarks = async (req, res) => {
     const docCount = await Bookmark.countDocuments(query);
     const categoryData = await Bookmark.find(query)
       .sort({ title: "asc" })
-      .skip(req.params.pageNum > 1 ? parseInt(req.params.pageNum) : 0)
+      .skip(req.params.bookmarksIndex > 1 ? parseInt(req.params.bookmarksIndex) : 0)
       .limit(5);
 
     res.send({ categoryData: categoryData, docCount: docCount });
