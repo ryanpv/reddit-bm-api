@@ -19,14 +19,7 @@ redditRouter.route("/log_callback")
       const redditResToken = await axios.post('https://www.reddit.com/api/v1/access_token', body, { headers: headers} )
       .then((res) => res.data) // returns expected response JSON body for tokens, scope, etc...
   
-      // const reddToken= redditResToken.access_token
-
       req.session.reddit_token = redditResToken.access_token
-      // return res
-      // .cookie("access_token", reddToken, {
-      //   httpOnly: true,
-      //   maxAge: 86400
-      // })
       res.status(200).send({ message: "logged in successfully"})
   }  catch (err) {
     console.log(err)
@@ -61,7 +54,7 @@ redditRouter.route("/saved-reddit-posts")
         res.status(200).send(redditFetchResponse)
       }
     } catch (err) {
-      console.log(err);
+      console.log(err.code);
       res.send(err)
     }
   });

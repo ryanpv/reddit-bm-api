@@ -38,7 +38,14 @@ app.use("/user-reddit", redditRouter)
 
 app.get("/client", (req, res) => {
   res.send("Hello World, welcome to home page")
-})
+});
+
+// Destroy user session route
+app.delete("/logout", (req, res) => {
+  req.session.destroy();
+  res.cookie('userRole', 'null', { httpOnly: false });
+  res.send("Session ended successfully")
+});
 
 app.listen(PORT, () => {
   mongooseConn
